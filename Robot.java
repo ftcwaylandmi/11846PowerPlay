@@ -31,9 +31,9 @@ public class Robot {
     }
 
     public void GrabServoOpen(){
-        robotHardware.grabServo.setPosition(1);
+        robotHardware.grabServo.setPosition(.5);
     }
     public void GrabServoClose(){
-        robotHardware.grabServo.setPosition(0);
+        robotHardware.grabServo.setPosition(.6--);
     }
 }
