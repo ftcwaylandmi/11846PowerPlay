@@ -27,8 +27,53 @@ public class TeleOp11846PP extends OpMode{
         robot.LeftDriveMotor(leftDrive);
         robot.RightDriveMotor(rightDrive);
 
-        robot.EleMotorStick(eleDrive);
-        robot.RotateMotorStick(rotateDrive);
+//        robot.EleMotorStick(eleDrive);
+//        robot.RotateMotorStick(rotateDrive);
+        if(gamepad2.a){
+            robot.EleMotorTicks(0);
+        }else if(gamepad2.x){
+            robot.EleMotorTicks(1);
+        }else if(gamepad2.b){
+            robot.EleMotorTicks(2);
+        }else if(gamepad2.y){
+            robot.EleMotorTicks(3);
+        }
+
+        if(gamepad2.dpad_left){
+            try {
+                robot.RotateMotorTicks(-1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if(gamepad2.dpad_up){
+            try {
+                robot.RotateMotorTicks(0);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if(gamepad2.right_stick_button){
+            try {
+                robot.RotateMotorTicks(0);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if(gamepad2.dpad_right){
+            try {
+                robot.RotateMotorTicks(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(gamepad2.left_trigger > gamepad2.right_trigger){
+            robot.RotateArmLeft();
+        }
+        if(gamepad2.right_trigger > gamepad2.left_trigger){
+            robot.RotateArmRight();
+        }
 
         if(gamepad2.left_bumper){
             robot.GrabServoOpen();
@@ -37,7 +82,11 @@ public class TeleOp11846PP extends OpMode{
             robot.GrabServoClose();
         }
 
-        telemetry.addData("EleTicks",robot.ElePos());
+        telemetry.addData("EleTicks",robot.GetElePos());
+//        telemetry.addData("GrabPos", robot.GetGrabPos());
+//        telemetry.addData("LeftTrigger", gamepad2.left_trigger);
+//        telemetry.addData("RightTrigger", gamepad2.right_trigger);
+        telemetry.addData("RotatePos", robot.GetRotatePos());
         telemetry.update();
     }
 }
