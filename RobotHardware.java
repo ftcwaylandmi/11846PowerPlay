@@ -32,10 +32,12 @@ public class RobotHardware {
 
         eleMotor = hwMap.get(DcMotor.class, "eleMotor");
         eleMotor.setPower(0);
+        eleMotor.setTargetPosition(0);
         eleMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         rotateMotor = hwMap.get(DcMotor.class, "rotateMotor");
         rotateMotor.setPower(0);
+        rotateMotor.setTargetPosition(0);
         rotateMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         grabServo = hwMap.get(Servo.class,"grabServo");

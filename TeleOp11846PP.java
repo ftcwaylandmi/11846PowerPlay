@@ -27,8 +27,8 @@ public class TeleOp11846PP extends OpMode{
         robot.LeftDriveMotor(leftDrive);
         robot.RightDriveMotor(rightDrive);
 
-        robot.EleMotor(eleDrive);
-        robot.RotateMotor(rotateDrive);
+        robot.EleMotorStick(eleDrive);
+        robot.RotateMotorStick(rotateDrive);
 
         if(gamepad2.left_bumper){
             robot.GrabServoOpen();
@@ -36,5 +36,8 @@ public class TeleOp11846PP extends OpMode{
         if(gamepad2.right_bumper){
             robot.GrabServoClose();
         }
+
+        telemetry.addData("EleTicks",robot.ElePos());
+        telemetry.update();
     }
 }

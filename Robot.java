@@ -17,23 +17,27 @@ public class Robot {
         robotHardware.rightMotor.setPower(power);
     }
 
+    public int ElePos(){
+        return robotHardware.eleMotor.getCurrentPosition();
+    }
+
     public void Drive(double lP, double rP){
         robotHardware.leftMotor.setPower(lP);
         robotHardware.rightMotor.setPower(rP);
     }
 
-    public void EleMotor(double power){
-        robotHardware.eleMotor.setPower(-power);
+    public void EleMotorStick(double power){
+        robotHardware.eleMotor.setPower(-power/5);
     }
 
-    public void RotateMotor(double power){
-        robotHardware.rotateMotor.setPower(power);
+    public void RotateMotorStick(double power){
+        robotHardware.rotateMotor.setPower(power/5);
     }
 
     public void GrabServoOpen(){
         robotHardware.grabServo.setPosition(.5);
     }
     public void GrabServoClose(){
-        robotHardware.grabServo.setPosition(.6--);
+        robotHardware.grabServo.setPosition(.65);
     }
 }
