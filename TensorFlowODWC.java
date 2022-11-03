@@ -50,7 +50,7 @@ import java.util.List;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@TeleOp(name = "TensorFLowODWC", group = "22154")
+@TeleOp(name = "TensorFLowODWC", group = "11846")
 //@Disabled
 public class TensorFlowODWC extends LinearOpMode {
 
@@ -188,4 +188,5 @@ public class TensorFlowODWC extends LinearOpMode {
         tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABELS);
         // tfod.loadModelFromFile(TFOD_MODEL_FILE, LABELS);
     }
+
 }

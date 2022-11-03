@@ -1,8 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.bosch.BHI260IMU;
+import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public class RobotHardware {
 
@@ -16,8 +21,23 @@ public class RobotHardware {
 
     public Servo grabServo = null;
 
+    public BNO055IMU imu = null;
+
+    Orientation lastAngles = new Orientation();
+
     public void Init(HardwareMap ahwMap) {
         hwMap = ahwMap;
+
+        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+
+        parameters.mode = BNO055IMU.SensorMode.IMU;
+        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.loggingEnabled = false;
+
+        imu = hwMap.get(BNO055IMU.class, "imu");
+
+        imu.initialize(parameters);
 
         rightMotor = hwMap.get(DcMotor.class, "rightMotor");
         leftMotor = hwMap.get(DcMotor.class, "leftMotor");
@@ -42,6 +62,8 @@ public class RobotHardware {
 
         grabServo = hwMap.get(Servo.class,"grabServo");
         grabServo.setDirection(Servo.Direction.FORWARD);
+
+//        gyroSensor.calibrate();
     }
 
 }
