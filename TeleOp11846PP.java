@@ -60,18 +60,18 @@ public class TeleOp11846PP extends OpMode{
             robot.RotateMotorStickWithLimits(rotateDrive);
         }
 
-        if(gamepad1.left_bumper){
+        if(gamepad2.left_bumper){
             robot.GrabServoOpen();
         }
-        if(gamepad1.right_bumper){
+        if(gamepad2.right_bumper){
             robot.GrabServoClose();
         }
-        if(gamepad2.left_bumper){
-            robot.EleMotorDown10();
-        }
-        if(gamepad2.right_bumper){
-            robot.EleMotorUp10();
-        }
+//        if(gamepad2.left_bumper){
+//            robot.EleMotorDown10();
+//        }
+//        if(gamepad2.right_bumper){
+//            robot.EleMotorUp10();
+//        }
 
         telemetry.addData("EleTicks",robot.GetElePos());
         telemetry.addData("GrabPos", robot.GetGrabPos());

@@ -145,11 +145,16 @@ public class AutonTest extends LinearOpMode {
             robot.DriveByInches(.5, 16-distFromWallInit);
             int savedNum = _convertLabelToInt(_getLabel());
 
-            robot.DriveByInches(.5, -7);
+            robot.DriveByInches(.5, 5);
+            if (savedNum == 1) {
+                robot.TurnByInches(.2, 90, 'l');
+                robot.DriveByInches(.5, 12);
+            }
 
-            robot.TurnByInches(.2, 90, 'r');
-
-            
+            if (savedNum == 3) {
+                robot.TurnByInches(.2, 90, 'r');
+                robot.DriveByInches(.5, 12);
+            }
 
         }
 
