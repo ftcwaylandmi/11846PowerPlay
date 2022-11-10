@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import static java.lang.Thread.sleep;
 
-@TeleOp(name = "TeleOp11846PP", group = "11846")
-public class TeleOp11846PP extends OpMode{
+@TeleOp(name = "TeleOp", group = "11846")
+public class TeleOpB extends OpMode{
 
     Robot robot = new Robot();
 
@@ -48,15 +48,15 @@ public class TeleOp11846PP extends OpMode{
 //        }
 
         if(gamepad2.dpad_left){
-            robot.RotateMotorTicks(2);
+            robot.RotateMotorTicks(0);
         }else if(gamepad2.dpad_up){
             robot.RotateMotorTicks(1);
         }else if(gamepad2.dpad_right){
-            robot.RotateMotorTicks(0);
+            robot.RotateMotorTicks(2);
         }else{
-            while (robot.robotHardware.rotateMotor.isBusy()){
+            //while (robot.robotHardware.rotateMotor.isBusy()){
 
-            }
+            //}
             robot.RotateMotorStickWithLimits(rotateDrive);
         }
 

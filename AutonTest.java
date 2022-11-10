@@ -142,18 +142,18 @@ public class AutonTest extends LinearOpMode {
             sleep(1000);
             robot.EleMotorTicksAuton(1);
 
-            robot.DriveByInches(.5, 16-distFromWallInit);
+            robot.DriveByInches(.5, 18-distFromWallInit);
             int savedNum = _convertLabelToInt(_getLabel());
 
-            robot.DriveByInches(.5, 5);
+            robot.DriveByInches(.5, 10);
             if (savedNum == 1) {
                 robot.TurnByInches(.2, 90, 'l');
-                robot.DriveByInches(.5, 12);
+                robot.DriveByInches(.5, 15);
             }
 
             if (savedNum == 3) {
                 robot.TurnByInches(.2, 90, 'r');
-                robot.DriveByInches(.5, 12);
+                robot.DriveByInches(.5, 15);
             }
 
         }

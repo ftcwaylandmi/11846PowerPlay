@@ -7,14 +7,14 @@ public class Robot {
 
     int eleHomeTicks = 0;
 
-    int eleAutonHover = -260;
+    int eleAutonHover = -600;
 
     int eleLowTicks = -1100;
     int eleMidTicks = -1860;
     int eleHighTicks = -2550;
 
-    int rotateLeftTicks = -105;
-    int rotateRightTicks = 110;
+    int rotateLeftTicks = 105;
+    int rotateRightTicks = -110;
 
     RobotHardware robotHardware = new RobotHardware();
 
@@ -117,7 +117,7 @@ public class Robot {
 
     public void EleMotorStickWithLimits(double pStick){
 
-        int leftLimit = 0;
+        int leftLimit = 20;
         int rightLimit = -2550;
 
         DcMotor eleMotor = robotHardware.eleMotor;
