@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BHI260IMU;
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -22,6 +23,8 @@ public class RobotHardware {
     public Servo grabServo = null;
 
     public BNO055IMU imu = null;
+    public ColorSensor colorSensor = null;
+    private ColorSensor colorSensor1;
 
     Orientation lastAngles = new Orientation();
 
@@ -54,6 +57,9 @@ public class RobotHardware {
         eleMotor.setPower(0);
         eleMotor.setTargetPosition(0);
         eleMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        colorSensor = hwMap.get(ColorSensor.class, "colorSensor");
+
 
         rotateMotor = hwMap.get(DcMotor.class, "rotateMotor");
         rotateMotor.setPower(0);

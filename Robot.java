@@ -385,4 +385,17 @@ public class Robot {
     public void GrabServoClose(){
         robotHardware.grabServo.setPosition(.65);
     }
+
+    public int GetColor(){
+        if(robotHardware.colorSensor.red() > robotHardware.colorSensor.blue() && robotHardware.colorSensor.red() > robotHardware.colorSensor.green()){
+            return 1;
+        }
+        if(robotHardware.colorSensor.green() > robotHardware.colorSensor.blue() && robotHardware.colorSensor.green() > robotHardware.colorSensor.red()){
+            return 2;
+        }
+        if(robotHardware.colorSensor.blue() > robotHardware.colorSensor.red() && robotHardware.colorSensor.blue() > robotHardware.colorSensor.green()){
+            return 3;
+        }
+        return 0;
+    }
 }

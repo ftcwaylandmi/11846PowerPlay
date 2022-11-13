@@ -11,19 +11,19 @@ import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 
 import java.util.List;
 
-@Autonomous(name="AutonTest", group="11846")
-public class AutonTest extends LinearOpMode {
+@Autonomous(name="AutonLouis", group="11846")
+public class AutonLouis extends LinearOpMode {
 
     private Robot robot = new Robot();
-
+    private int savedpos;
     private static final String TFOD_MODEL_ASSET = "PowerPlay.tflite";
     // private static final String TFOD_MODEL_FILE  = "/sdcard/FIRST/tflitemodels/CustomTeamModel.tflite";
 
 
     private static final String[] LABELS = {
-            "1 Bolt",
-            "2 Bulb",
-            "3 Panel"
+            "1 Green",
+            "2 Red",
+            "3 Blue",
     };
 
     private static final String VUFORIA_KEY =
@@ -114,11 +114,11 @@ public class AutonTest extends LinearOpMode {
     private int _convertLabelToInt(String label){
         switch (label){
 
-            case "1 Bolt":
+            case "1 Green":
                 return 1;
-            case "2 Bulb":
+            case "2 Red":
                 return 2;
-            case "3 Panel":
+            case "3 Blue":
                 return 3;
         }
         return 0;
@@ -143,17 +143,31 @@ public class AutonTest extends LinearOpMode {
             robot.EleMotorTicksAuton(1);
 
 
+
             robot.DriveByInches(.5, 18-distFromWallInit);
-            int savedNum = _convertLabelToInt(_getLabel());
+            sleep(1000);
+            int x = 0;
+            for(int i = 0; i<6; i++){
+                x = x + robot.GetColor();
+            }
+            savedpos  = Math.round(x/5);
+            telemetry.addData("Color", savedpos);
+            telemetry.update();
+
+            robot.EleMotorTicksAuton(4);
+            robot.DriveByInches(.5,2);
+            robot.TurnByInches(.2,45,'l');
+            robot.DriveByInches(.5,20);
+            robot.GrabServoOpen();
 
             robot.DriveByInches(.5, 10);
-            if (savedNum == 1) {
-                robot.TurnByInches(.2, 90, 'l');
+            if (savedpos == 2) {
+                robot.TurnByInches(.2, 135, 'l');
                 robot.DriveByInches(.5, 15);
             }
 
-            if (savedNum == 3) {
-                robot.TurnByInches(.2, 90, 'r');
+            if (savedpos == 3) {
+                robot.TurnByInches(.2, 135, 'r');
                 robot.DriveByInches(.5, 15);
             }
 
