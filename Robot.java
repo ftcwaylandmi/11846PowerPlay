@@ -11,7 +11,7 @@ public class Robot {
 
     int eleLowTicks = -1100;
     int eleMidTicks = -1860;
-    int eleHighTicks = -2550;
+    int eleHighTicks = -2590;
 
     int rotateLeftTicks = 105;
     int rotateRightTicks = -110;
@@ -303,23 +303,31 @@ public class Robot {
         final double wheelCir = 3.54331*Math.PI;
         final double rotationalCir = 11.375*Math.PI;
         final double ticksPerInch = tpr/wheelCir;
-        final double a135 = 3.75;
-        final int a90 = 4;
-        final int a45 = 8;
+//        final double a135 = 3.75;
+//        final int a90 = 4;
+//        final int a45 = 8;
+//        final int a50 = 12;
 
-        int ticks = (int) ((tpr/wheelCir)*(rotationalCir/a90));
+        int a = 360/degree;
 
-        switch (degree){
-            case 135:
-                ticks = (int) (ticksPerInch*(rotationalCir/a135));
-                break;
-            case 90:
-                ticks = (int) (ticksPerInch*(rotationalCir/a90));
-                break;
-            case 45:
-                ticks = (int) (ticksPerInch*(rotationalCir/a45));
-                break;
-        }
+        //360/#=#
+        int ticks = (int) ((tpr/wheelCir)*(rotationalCir/a));
+
+//        switch (degree){
+//            case 135:
+//                ticks = (int) (ticksPerInch*(rotationalCir/a135));
+//                break;
+//            case 90:
+//                ticks = (int) (ticksPerInch*(rotationalCir/a90));
+//                break;
+//            case 45:
+//                ticks = (int) (ticksPerInch*(rotationalCir/a45));
+//                break;
+//            case 50:
+//                ticks = (int) (ticksPerInch*(rotationalCir/a50));
+//                // case #: (go down to next notes)
+//                // ticks = (int) (ticksPerInch*(rotationCir/a#));
+//        }
 
         int lTicks = robotHardware.leftMotor.getCurrentPosition();
         int rTicks = robotHardware.rightMotor.getCurrentPosition();
@@ -388,13 +396,16 @@ public class Robot {
 
     public int GetColor(){
         if(robotHardware.colorSensor.red() > robotHardware.colorSensor.blue() && robotHardware.colorSensor.red() > robotHardware.colorSensor.green()){
-            return 1;
+            // Red
+            return 3;
         }
         if(robotHardware.colorSensor.green() > robotHardware.colorSensor.blue() && robotHardware.colorSensor.green() > robotHardware.colorSensor.red()){
-            return 2;
+            //Green
+            return 1;
         }
         if(robotHardware.colorSensor.blue() > robotHardware.colorSensor.red() && robotHardware.colorSensor.blue() > robotHardware.colorSensor.green()){
-            return 3;
+           //blue
+            return 2;
         }
         return 0;
     }

@@ -154,10 +154,11 @@ public class AutonLouis extends LinearOpMode {
             telemetry.addData("Color", savedpos);
             telemetry.update();
 
+            robot.DriveByInches(.5, 15);
+            robot.DriveByInches(.5,-8);
+            robot.TurnByInches(.2,57,'l');
             robot.EleMotorTicksAuton(4);
-            robot.DriveByInches(.5,2);
-            robot.TurnByInches(.2,45,'l');
-            robot.DriveByInches(.5,20);
+            robot.DriveByInches(.5,17);
             robot.GrabServoOpen();
 
             robot.DriveByInches(.5, 10);
@@ -168,7 +169,7 @@ public class AutonLouis extends LinearOpMode {
 
             if (savedpos == 3) {
                 robot.TurnByInches(.2, 135, 'r');
-                robot.DriveByInches(.5, 15);
+                robot.DriveByInches(.5, 30);
             }
 
         }
