@@ -137,7 +137,11 @@ public class Robot {
         }
         while (eleMotor.getCurrentPosition() >= leftLimit){
             if(pStick < 0){
-                eleMotor.setPower(pStick/2);
+                if(eleMotor.getCurrentPosition() >= -300){
+                    eleMotor.setPower(pStick*.05);
+                }else {
+                    eleMotor.setPower(pStick / 2);
+                }
                 break;
             }else {
                 eleMotor.setPower(0);
@@ -397,7 +401,7 @@ public class Robot {
     public int GetColor(){
         if(robotHardware.colorSensor.red() > robotHardware.colorSensor.blue() && robotHardware.colorSensor.red() > robotHardware.colorSensor.green()){
             // Red
-            return 3;
+            return 2;
         }
         if(robotHardware.colorSensor.green() > robotHardware.colorSensor.blue() && robotHardware.colorSensor.green() > robotHardware.colorSensor.red()){
             //Green
@@ -405,7 +409,7 @@ public class Robot {
         }
         if(robotHardware.colorSensor.blue() > robotHardware.colorSensor.red() && robotHardware.colorSensor.blue() > robotHardware.colorSensor.green()){
            //blue
-            return 2;
+            return 3;
         }
         return 0;
     }
