@@ -184,7 +184,7 @@ public class AutonLouis extends LinearOpMode {
                 robot.TurnByInches(.2,23,'l');
                 robot.DriveByInches(.5,-45);
             }
-                robot.EleMotorTicksAuton(2);
+                robot.EleMotorTicksAuton(0);
 
         }
 
