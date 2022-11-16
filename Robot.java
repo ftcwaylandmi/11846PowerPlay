@@ -398,8 +398,13 @@ public class Robot {
         robotHardware.grabServo.setPosition(.65);
     }
 
+    public int ReturnColor() {
+        return         robotHardware.colorSensor.argb();
+
+    }
+    public int robotHardware.NoColor();
     public int GetColor(){
-        if(robotHardware.colorSensor.red() > robotHardware.colorSensor.blue() && robotHardware.colorSensor.red() > robotHardware.colorSensor.green()){
+        if(robotHardware.colorSensor.red() > robotHardware.colorSensor.green() && robotHardware.colorSensor.red() > robotHardware.colorSensor.blue()){
             // Red
             return 2;
         }
@@ -411,6 +416,6 @@ public class Robot {
            //blue
             return 3;
         }
-        return 0;
+        return 2;
     }
 }

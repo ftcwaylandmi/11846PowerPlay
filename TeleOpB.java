@@ -73,6 +73,7 @@ public class TeleOpB extends OpMode{
 //            robot.EleMotorUp10();
 //        }
 
+        telemetry.addData("Color", robot.ReturnColor());
         telemetry.addData("EleTicks",robot.GetElePos());
         telemetry.addData("GrabPos", robot.GetGrabPos());
         telemetry.addData("LeftTrigger", gamepad2.left_trigger);
