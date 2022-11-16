@@ -11,8 +11,8 @@ import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 
 import java.util.List;
 
-@Autonomous(name="AutonLouis", group="11846")
-public class AutonLouis extends LinearOpMode {
+@Autonomous(name="AutonomousLeft", group="11846")
+public class AutonomousLeft extends LinearOpMode {
 
     private Robot robot = new Robot();
     private int savedpos;
@@ -161,30 +161,30 @@ public class AutonLouis extends LinearOpMode {
                 //robot.TurnByInches(.2,30,'r');
                 //break
             }
-            robot.TurnByInches(.2,59,'l');
+            robot.TurnByInches(.2,59,'r');
             robot.EleMotorTicksAuton(4);
             robot.EleMotorTicksAuton(4);
             robot.DriveByInches(.5,18);
             sleep(500);
             robot.GrabServoOpen();
-            sleep(1000);
+            sleep(500);
 
             if(savedpos == 1){
                 robot.DriveByInches(.5, -4);
-                robot.TurnByInches(.2, 30,'l');
+                robot.TurnByInches(.2, 30,'r');
             }
 
             if (savedpos == 2) {
                 robot.DriveByInches(.5, -20);
-                robot.TurnByInches(.2,57,'r');
+                robot.TurnByInches(.2,57,'l');
             }
 
             if (savedpos == 3) {
                 robot.DriveByInches(.5, -10);
-                robot.TurnByInches(.2,23,'l');
+                robot.TurnByInches(.2,23,'r');
                 robot.DriveByInches(.5,-45);
             }
-                robot.EleMotorTicksAuton(2);
+                robot.EleMotorTicksAuton(0);
 
         }
 
