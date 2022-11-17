@@ -160,7 +160,7 @@ public class AutonLouis extends LinearOpMode {
                 //robot.EleMotorTicksAuton(0);
                 //robot.TurnByInches(.2,30,'r');
                 //break
-            }
+//            }
             robot.TurnByInches(.2,59,'l');
             robot.EleMotorTicksAuton(4);
             robot.EleMotorTicksAuton(4);

@@ -139,7 +139,7 @@ public class AutonomousRight extends LinearOpMode {
             // 5.4 inches for turn equals 45 degrees
 
             robot.GrabServoClose();
-            sleep(1000);
+            sleep(500);
             robot.EleMotorTicksAuton(1);
 
 
@@ -156,18 +156,12 @@ public class AutonomousRight extends LinearOpMode {
 
             robot.DriveByInches(.25, 13);
             robot.DriveByInches(.5,-8);
-            //if(savedpos == 2){
-                //robot.EleMotorTicksAuton(0);
-                //robot.TurnByInches(.2,30,'r');
-                //break
-            }
             robot.TurnByInches(.2,59,'l');
-            robot.EleMotorTicksAuton(4);
             robot.EleMotorTicksAuton(4);
             robot.DriveByInches(.5,18);
             sleep(500);
             robot.GrabServoOpen();
-            sleep(1000);
+            sleep(500);
 
             if(savedpos == 1){
                 robot.DriveByInches(.5, -4);
@@ -182,8 +176,9 @@ public class AutonomousRight extends LinearOpMode {
             if (savedpos == 3) {
                 robot.DriveByInches(.5, -10);
                 robot.TurnByInches(.2,23,'l');
-                robot.DriveByInches(.5,-45);
+                robot.DriveByInches(1,-45);
             }
+
                 robot.EleMotorTicksAuton(0);
 
         }

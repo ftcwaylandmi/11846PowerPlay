@@ -402,17 +402,18 @@ public class Robot {
         return         robotHardware.colorSensor.argb();
 
     }
-    public int robotHardware.NoColor();
     public int GetColor(){
-        if(robotHardware.colorSensor.red() > robotHardware.colorSensor.green() && robotHardware.colorSensor.red() > robotHardware.colorSensor.blue()){
+        int r = robotHardware.colorSensor.red();
+        int g = robotHardware.colorSensor.green();
+        int b = robotHardware.colorSensor.blue();
+
+        if(r >= g && r >= b){
             // Red
             return 2;
-        }
-        if(robotHardware.colorSensor.green() > robotHardware.colorSensor.blue() && robotHardware.colorSensor.green() > robotHardware.colorSensor.red()){
+        } else if(g >= b && g >= r){
             //Green
             return 1;
-        }
-        if(robotHardware.colorSensor.blue() > robotHardware.colorSensor.red() && robotHardware.colorSensor.blue() > robotHardware.colorSensor.green()){
+        } else if(b > r && b > g){
            //blue
             return 3;
         }
