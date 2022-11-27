@@ -11,7 +11,7 @@ public class Robot {
 
     int eleLowTicks = -1100;
     int eleMidTicks = -1860;
-    int eleHighTicks = -2590;
+    int eleHighTicks = -2600;
 
     int rotateLeftTicks = 105;
     int rotateRightTicks = -110;
@@ -118,13 +118,13 @@ public class Robot {
     public void EleMotorStickWithLimits(double pStick){
 
         int leftLimit = 20;
-        int rightLimit = -2550;
+        int rightLimit = -2570;
 
         DcMotor eleMotor = robotHardware.eleMotor;
 
         eleMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        eleMotor.setPower(pStick/2);
+        eleMotor.setPower(pStick);
 
         while (eleMotor.getCurrentPosition() <= rightLimit){
             if(pStick > 0){
