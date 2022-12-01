@@ -46,10 +46,9 @@ public class AutonomousRight extends LinearOpMode {
 
             robot.DriveByInches(.25, 13);
             robot.DriveByInches(.35,-9.3);
-            robot.TurnByInches(.2,60,'l');
+            robot.TurnByInches(.2,59,'l');
             robot.EleMotorTicksAuton(4);
             robot.DriveByInches(.5,19);
-            robot.EleMotorTicksAuton(4);
             sleep(500);
             robot.GrabServoOpen();
             sleep(500);
