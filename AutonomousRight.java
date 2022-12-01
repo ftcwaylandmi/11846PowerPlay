@@ -39,8 +39,7 @@ public class AutonomousRight extends LinearOpMode {
             int x = 0;
             for(int i = 0; i<6; i++){
                 x = x + robot.GetColor();
-            }
-            int test = 0;
+            
             int savedpos  = Math.round(x/5);
             telemetry.addData("Color", savedpos);
             telemetry.update();
