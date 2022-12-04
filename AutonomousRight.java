@@ -23,7 +23,7 @@ public class AutonomousRight extends LinearOpMode {
 
         int distFromWallInit = 2;
 
-        if(opModeIsActive()){
+        if (opModeIsActive()) {
 
             // 10.8 inches for turn equals 90 degrees
             // 5.4 inches for turn equals 45 degrees
@@ -33,48 +33,45 @@ public class AutonomousRight extends LinearOpMode {
             robot.EleMotorTicksAuton(1);
 
 
-
-            robot.DriveByInches(.5, 22-distFromWallInit);
+            robot.DriveByInches(.5, 22 - distFromWallInit);
             sleep(1000);
             int x = 0;
-            for(int i = 0; i<6; i++){
+            for (int i = 0; i < 6; i++) {
                 x = x + robot.GetColor();
-            
-            int savedpos  = Math.round(x/5);
-            telemetry.addData("Color", savedpos);
-            telemetry.update();
-
-            robot.DriveByInches(.25, 13);
-            robot.DriveByInches(.35,-9.3);
-            robot.TurnByInches(.2,59,'l');
-            robot.EleMotorTicksAuton(4);
-            robot.DriveByInches(.5,19);
-            sleep(500);
-            robot.GrabServoOpen();
-            sleep(500);
-
-            if(savedpos == 1){
-                robot.DriveByInches(.5, -4);
-                robot.TurnByInches(.2, 30,'l');
             }
+                int savedpos = Math.round(x / 5);
+                telemetry.addData("Color", savedpos);
+                telemetry.update();
 
-            if (savedpos == 2) {
-                robot.DriveByInches(.5, -20);
-                robot.TurnByInches(.2,57,'r');
-            }
+                robot.DriveByInches(.25, 13);
+                robot.DriveByInches(.35, -9.3);
+                robot.TurnByInches(.2, 59, 'l');
+                robot.EleMotorTicksAuton(4);
+                robot.DriveByInches(.5, 19);
+                sleep(500);
+                robot.GrabServoOpen();
+                sleep(500);
 
-            if (savedpos == 3) {
-                robot.DriveByInches(.5, -10);
-                robot.TurnByInches(.2,40,'l');
-                robot.DriveByInches(.5,-50);
-            }
+                if (savedpos == 1) {
+                    robot.DriveByInches(.5, -4);
+                    robot.TurnByInches(.2, 30, 'l');
+                }
+
+                if (savedpos == 2) {
+                    robot.DriveByInches(.5, -20);
+                    robot.TurnByInches(.2, 57, 'r');
+                }
+
+                if (savedpos == 3) {
+                    robot.DriveByInches(.5, -10);
+                    robot.TurnByInches(.2, 38, 'l');
+                    robot.DriveByInches(.5, -50);
+                }
 
                 robot.EleMotorTicksAuton(0);
 
+            }
+
+
         }
-
-
-
-
     }
-}
